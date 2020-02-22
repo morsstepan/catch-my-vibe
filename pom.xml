@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.morsstepan</groupId>
-	<artifactId>get-spotified</artifactId>
+	<artifactId>get-vibed-out</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>get-spotified</name>
+	<name>get-vibed-out</name>
 	<description>Project for Spring Boot</description>
 
 	<properties>

@@ -1,4 +1,4 @@
-package com.morsstepan.getspotified;
+package com.morsstepan.getvibedout;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

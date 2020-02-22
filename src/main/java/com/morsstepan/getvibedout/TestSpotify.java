@@ -1,4 +1,4 @@
-package com.morsstepan.getspotified;
+package com.morsstepan.getvibedout;
 
 import com.neovisionaries.i18n.CountryCode;
 import com.wrapper.spotify.SpotifyApi;

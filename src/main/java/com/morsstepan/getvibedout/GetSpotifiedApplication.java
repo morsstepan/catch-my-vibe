@@ -1,4 +1,4 @@
-package com.morsstepan.getspotified;
+package com.morsstepan.getvibedout;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.morsstepan.getspotified;
+package com.morsstepan.getvibedout;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
