@@ -4,17 +4,20 @@ import com.morsstepan.catchmyvibe.TrackSpotify;
 import com.neovisionaries.i18n.CountryCode;
 import com.wrapper.spotify.SpotifyApi;
 import com.wrapper.spotify.exceptions.SpotifyWebApiException;
-import com.wrapper.spotify.model_objects.miscellaneous.AudioAnalysis;
 import com.wrapper.spotify.model_objects.specification.*;
 import com.wrapper.spotify.requests.data.search.simplified.SearchTracksRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Component
 @Service
 public class SpotifyService {
 
@@ -91,12 +94,16 @@ public class SpotifyService {
 
     }
 
-    public Playlist createPlaylist() {
+    public Playlist createPlaylist(Recommendations recommendations) {
         try {
-//            spotify.getCurrentUsersProfile().build().execute().getId()
             final Playlist playlist = spotify.createPlaylist(spotify.getCurrentUsersProfile().build().execute().getId(),
-                    "CatchMyVibePlaylist").build().execute();
-            System.out.println("Name: " + playlist.getName());
+                    "CatchMyVibe Playlist | " + LocalDateTime.now()).build().execute();
+
+            spotify.addTracksToPlaylist(playlist.getId(),
+                    Arrays.stream(Arrays.stream(recommendations.getTracks()).map(TrackSimplified::getUri).toArray()).toArray(String[]::new))
+            .build()
+            .execute();
+
             return playlist;
         } catch (IOException | SpotifyWebApiException e) {
             System.out.println("Error: " + e.getMessage());
@@ -104,13 +111,12 @@ public class SpotifyService {
         }
     }
 
-    public Recommendations processTrackAndGetRecommendations(TrackSpotify track) {
+    public Playlist processTrackAndReturnPlaylist(TrackSpotify track) {
         Paging<Track> trackPaging = searchTrack(track);
         track.setId(trackPaging.getItems()[0].getId());
-
         try {
-            final AudioAnalysis audioAnalysis = spotify.getAudioAnalysisForTrack(track.getId()).build().execute();
-            return spotify.getRecommendations().seed_tracks(track.getId()).build().execute();
+            Recommendations recommendations = spotify.getRecommendations().seed_tracks(track.getId()).limit(50).build().execute();
+            return createPlaylist(recommendations);
         } catch (IOException | SpotifyWebApiException e) {
             throw new RuntimeException();
         }

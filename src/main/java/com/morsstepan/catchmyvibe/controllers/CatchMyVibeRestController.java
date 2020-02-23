@@ -1,16 +1,15 @@
 package com.morsstepan.catchmyvibe.controllers;
 
-import com.morsstepan.catchmyvibe.Greeting;
 import com.morsstepan.catchmyvibe.TrackSpotify;
 import com.morsstepan.catchmyvibe.models.HomeModelView;
-import com.morsstepan.catchmyvibe.models.TrackModel;
+import com.morsstepan.catchmyvibe.models.PlaylistModelView;
 import com.morsstepan.catchmyvibe.service.SpotifyService;
 import com.morsstepan.catchmyvibe.config.SpotifyConfigConstants;
 import com.morsstepan.catchmyvibe.config.SpotifyOAuth2User;
-import com.wrapper.spotify.model_objects.specification.Recommendations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +17,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Arrays;
-
 @Controller
+@Component
 public class CatchMyVibeRestController {
     @Autowired
     private SpotifyService spotifyService;
@@ -38,9 +36,10 @@ public class CatchMyVibeRestController {
 
     @PostMapping("/generate")
     public ModelAndView generateSubmit(@ModelAttribute TrackSpotify track) {
-        Recommendations recommendations = spotifyService.processTrackAndGetRecommendations(track);
+        spotifyService.processTrackAndReturnPlaylist(track);
 
-        return new ModelAndView("result", "recommendations", recommendations.getTracks());
+        System.out.println();
+        return new ModelAndView("result", "playlist", spotifyService.processTrackAndReturnPlaylist(track));
     }
 
     @GetMapping("/home")
