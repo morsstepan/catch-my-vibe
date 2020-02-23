@@ -12,12 +12,15 @@ import org.springframework.web.context.WebApplicationContext;
 @Configuration
 @PropertySource("classpath:secrets.properties")
 public class AppConfigSpotify {
+    private static final String CLIENT_ID_HEROKU_ENV = System.getenv("api.spotify.clientId");
+    private static final String SECRET_HEROKU_ENV = System.getenv("api.spotify.secret");
 
-    @Value("${api.spotify.clientId}")
-    String clientId;
 
-    @Value("${api.spotify.secret}")
-    String secret;
+    //    @Value(${api.spotify.clientId})
+    String clientId = CLIENT_ID_HEROKU_ENV;
+
+    //    @Value(${api.spotify.secret})
+    String secret = SECRET_HEROKU_ENV;
 
     @Bean
     @Scope(value = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
