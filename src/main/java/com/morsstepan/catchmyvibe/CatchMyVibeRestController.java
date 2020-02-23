@@ -1,11 +1,14 @@
-package com.morsstepan.getvibedout;
+package com.morsstepan.catchmyvibe;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-@org.springframework.stereotype.Controller
-public class Controller {
+@Controller
+public class CatchMyVibeRestController {
 
     @GetMapping("/hello")
     public String hello(
@@ -15,11 +18,9 @@ public class Controller {
         return "hello";
     }
 
-    @GetMapping("/hello")
-    public String a(
-            @RequestParam(name="name", required=false, defaultValue="World") String name,
-            Model model) {
-        model.addAttribute("name", name);
-        return "hello";
+    @GetMapping("/auth")
+    public String authWithSpotify(){
+        return "";
     }
+
 }

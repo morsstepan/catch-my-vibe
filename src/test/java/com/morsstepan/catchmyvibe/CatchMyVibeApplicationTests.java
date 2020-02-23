@@ -1,10 +1,10 @@
-package com.morsstepan.getvibedout;
+package com.morsstepan.catchmyvibe;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GetSpotifiedApplicationTests {
+class CatchMyVibeApplicationTests {
 
 	@Test
 	void contextLoads() {
