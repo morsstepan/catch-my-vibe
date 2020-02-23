@@ -15,9 +15,9 @@ public class HomeModelView extends ModelAndView {
         return this;
     }
 
-    public HomeModelView setPlaylists(List<PlaylistModel> playlists) {
-        addObject("playlists", playlists);
-        return this;
-    }
+//    public HomeModelView setPlaylists(List<PlaylistModel> playlists) {
+//        addObject("playlists", playlists);
+//        return this;
+//    }
 
 }

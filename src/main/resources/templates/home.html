@@ -15,24 +15,25 @@
 
 <div class="container-fluid">
     <div class="d-flex flex-column align-items-center">
-        <h1 class="display-1">Welcome <span th:text="${username}"></span></h1>
+        <h1 class="display-1">Welcome, <span th:text="${username}"></span></h1>
         <p class="lead">Get started by selecting one of your playlists (CTRL/CMD + F)</p>
     </div>
 
 
-    <div class="container">
-        <div class="card-columns">
-            <div id="playlist" class="card text-light bg-dark"
-                 th:each="playlist : ${playlists}"
-                 th:playlist-id="${playlist.id}"
-                 th:onclick="'window.location = \'' + @{'/playlists/' + ${playlist.id}} + '\''">
+<!--    <div class="container">-->
+<!--        <h3></h3>-->
+<!--        <div class="card-columns">-->
+<!--            <div id="playlist" class="card text-light bg-dark"-->
+<!--                 th:each="playlist : ${playlists}"-->
+<!--                 th:playlist-id="${playlist.id}"-->
+<!--                 th:onclick="'window.location = \'' + @{'/playlists/' + ${playlist.id}} + '\''">-->
 
-                <img class="card-img-top" th:if="${playlist.image}" th:src="${playlist.image}" alt="No image">
-                <div class="card-body" >
-                    <h4 class="card-title" th:text="${playlist.name}">Title</h4>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--                <img class="card-img-top" th:if="${playlist.image}" th:src="${playlist.image}" alt="No image">-->
+<!--                <div class="card-body" >-->
+<!--                    <h4 class="card-title" th:text="${playlist.name}">Title</h4>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 </html>

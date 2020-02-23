@@ -54,8 +54,8 @@ public class CatchMyVibeRestController {
                 .collect(Collectors.toList());
 
         return new HomeModelView()
-                .setUsername(user.getName())
-                .setPlaylists(playlistDetails);
+                .setUsername(user.getName());
+//                .setPlaylists(playlistDetails);
     }
 
 }
