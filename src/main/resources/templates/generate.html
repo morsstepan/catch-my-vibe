@@ -17,30 +17,13 @@
     <div class="d-flex flex-column align-items-center">
         <h1 class="display-1">Welcome, <span th:text="${username}"></span></h1>
         <p class="lead">Get started by typing the name of the song you want to catch the vibe from.
-        For example, The Beatles - Yesterday</p>
+            For example, The Beatles - Yesterday</p>
         <h1>Form</h1>
-        <form action="#" th:action="@{/generate}" th:object="${track}" method="post">
+        <form action="#" th:action="@{/generate}" th:object="${trackSpotify}" method="post">
             <p>Artist: <input type="text" th:field="*{artist}" /></p>
             <p>Song: <input type="text" th:field="*{song}" /></p>
             <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
         </form>
     </div>
-
-
-<!--    <div class="container">-->
-<!--        <h3></h3>-->
-<!--        <div class="card-columns">-->
-<!--            <div id="playlist" class="card text-light bg-dark"-->
-<!--                 th:each="playlist : ${playlists}"-->
-<!--                 th:playlist-id="${playlist.id}"-->
-<!--                 th:onclick="'window.location = \'' + @{'/playlists/' + ${playlist.id}} + '\''">-->
-
-<!--                <img class="card-img-top" th:if="${playlist.image}" th:src="${playlist.image}" alt="No image">-->
-<!--                <div class="card-body" >-->
-<!--                    <h4 class="card-title" th:text="${playlist.name}">Title</h4>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 
 </html>

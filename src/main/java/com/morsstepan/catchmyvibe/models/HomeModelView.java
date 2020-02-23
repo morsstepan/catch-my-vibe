@@ -1,8 +1,7 @@
 package com.morsstepan.catchmyvibe.models;
 
+import com.morsstepan.catchmyvibe.TrackSpotify;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.List;
 
 public class HomeModelView extends ModelAndView {
 
@@ -12,6 +11,11 @@ public class HomeModelView extends ModelAndView {
 
     public HomeModelView setUsername(String username) {
         addObject("username", username);
+        return this;
+    }
+
+    public HomeModelView setTrack(TrackSpotify trackSpotify) {
+        addObject("track", trackSpotify);
         return this;
     }
 

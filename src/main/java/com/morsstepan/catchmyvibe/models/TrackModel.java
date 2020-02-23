@@ -1,5 +1,6 @@
 package com.morsstepan.catchmyvibe.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public class TrackModel extends ModelMap {
 
     public TrackModel setName(String name) {
-        addAttribute("name", name);
+        addAttribute("song", name);
         return this;
     }
 
@@ -20,5 +21,10 @@ public class TrackModel extends ModelMap {
         addAttribute("id", id);
         return this;
     }
+
+
+
+
+
 
 }
