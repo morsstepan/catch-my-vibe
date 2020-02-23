@@ -1,4 +1,4 @@
-package com.morsstepan.catchmyvibe;
+package com.morsstepan.catchmyvibe.models;
 
 import org.springframework.ui.ModelMap;
 

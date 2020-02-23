@@ -1,5 +1,6 @@
 package com.morsstepan.catchmyvibe;
 
+import com.morsstepan.catchmyvibe.models.PlaylistModel;
 import com.wrapper.spotify.model_objects.specification.Playlist;
 import com.wrapper.spotify.model_objects.specification.PlaylistSimplified;
 

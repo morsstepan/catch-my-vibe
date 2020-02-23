@@ -1,4 +1,4 @@
-package com.morsstepan.catchmyvibe;
+package com.morsstepan.catchmyvibe.service;
 
 import com.neovisionaries.i18n.CountryCode;
 import com.wrapper.spotify.SpotifyApi;

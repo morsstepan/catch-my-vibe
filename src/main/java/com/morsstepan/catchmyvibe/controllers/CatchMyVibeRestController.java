@@ -1,9 +1,9 @@
 package com.morsstepan.catchmyvibe.controllers;
 
-import com.morsstepan.catchmyvibe.HomeModelView;
+import com.morsstepan.catchmyvibe.models.HomeModelView;
 import com.morsstepan.catchmyvibe.PlaylistMapper;
-import com.morsstepan.catchmyvibe.PlaylistModel;
-import com.morsstepan.catchmyvibe.SpotifyService;
+import com.morsstepan.catchmyvibe.models.PlaylistModel;
+import com.morsstepan.catchmyvibe.service.SpotifyService;
 import com.morsstepan.catchmyvibe.config.SpotifyConfigConstants;
 import com.morsstepan.catchmyvibe.config.SpotifyOAuth2User;
 import com.wrapper.spotify.model_objects.specification.PlaylistSimplified;
@@ -13,9 +13,7 @@ import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
