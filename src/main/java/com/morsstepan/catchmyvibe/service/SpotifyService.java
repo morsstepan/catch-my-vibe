@@ -98,7 +98,7 @@ public class SpotifyService {
         try {
             final Playlist playlist = spotify.createPlaylist(spotify.getCurrentUsersProfile().build().execute().getId(),
                     "CatchMyVibe Playlist | " + LocalDateTime.now()).build().execute();
-
+            spotify.changePlaylistsDetails(playlist.getId()).description("Created with <3 by CatchMyVibe");
             spotify.addTracksToPlaylist(playlist.getId(),
                     Arrays.stream(Arrays.stream(recommendations.getTracks()).map(TrackSimplified::getUri).toArray()).toArray(String[]::new))
             .build()

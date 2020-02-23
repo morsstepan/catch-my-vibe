@@ -6,6 +6,7 @@ import com.morsstepan.catchmyvibe.models.PlaylistModelView;
 import com.morsstepan.catchmyvibe.service.SpotifyService;
 import com.morsstepan.catchmyvibe.config.SpotifyConfigConstants;
 import com.morsstepan.catchmyvibe.config.SpotifyOAuth2User;
+import com.wrapper.spotify.model_objects.specification.Playlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
@@ -36,10 +37,9 @@ public class CatchMyVibeRestController {
 
     @PostMapping("/generate")
     public ModelAndView generateSubmit(@ModelAttribute TrackSpotify track) {
-        spotifyService.processTrackAndReturnPlaylist(track);
-
-        System.out.println();
-        return new ModelAndView("result", "playlist", spotifyService.processTrackAndReturnPlaylist(track));
+        Playlist playlist = spotifyService.processTrackAndReturnPlaylist(track);
+        return new ModelAndView("result", "playlist", playlist)
+                .addObject("playlistLink", playlist.getExternalUrls().get("spotify"));
     }
 
     @GetMapping("/home")

@@ -5,9 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Result</h1>
-<p th:text="'id: ' + ${recommendations.}" />
-<p th:text="'content: ' + ${greeting.content}" />
-<a href="/greeting">Submit another message</a>
+    <h1>Result</h1>
+
+    <p>Your playlist has been successfully generated.</p>
+    <a th:href="${playlistLink}" th:text="'Get it here'" target="_blank" />
+</td>
 </body>
 </html>
